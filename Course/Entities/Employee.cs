@@ -5,6 +5,7 @@
         public string Name { get; set; }
         public int Hours { get; set; }
         public double ValuePerHour { get; set; }
+        static public List<Employee> employees {get;set;} = new List<Employee>();
 
         public Employee()
         {
