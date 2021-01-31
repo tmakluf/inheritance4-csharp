@@ -9,8 +9,7 @@ namespace Course
     {
         static void Main(string[] args)
         {
-            List<Employee> list = new List<Employee>();
-
+            
             Console.Write("Enter the number of employees: ");
             int n = int.Parse(Console.ReadLine());
 
@@ -29,17 +28,17 @@ namespace Course
                 {
                     Console.Write("Additional charge: ");
                     double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    list.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
+                    Employee.employees.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
                 }
                 else
                 {
-                    list.Add(new Employee(name, hours, valuePerHour));
+                    Employee.employees.Add(new Employee(name, hours, valuePerHour));
                 }
             }
 
             Console.WriteLine();
             Console.WriteLine("PAYMENTS:");
-            foreach (Employee emp in list)
+            foreach (var employee in Employee.employees)
             {
                 Console.WriteLine(emp.Name + " - $ " + emp.Payment().ToString("F2", CultureInfo.InvariantCulture));
             }
